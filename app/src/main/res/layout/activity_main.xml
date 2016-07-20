@@ -11,18 +11,19 @@
         android:background="#484E61">
         <TextView
             android:id="@+id/title_text"
-            android:layout_centerInParent="true"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#fff"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:text="a"/>
     </RelativeLayout>
 
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        
+
 
     </ListView>
 

@@ -21,6 +21,7 @@ import model.County;
 import model.Province;
 import util.HttpCallbackListener;
 import util.HttpUtil;
+import util.ProvinceAdapter;
 import util.Utility;
 import util.ZazaluWeatherDB;
 
@@ -32,7 +33,7 @@ public class ChooseAreaActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private TextView titleText;
     private ListView listVIew;
-    private ArrayAdapter<String> adapter;
+    private ProvinceAdapter adapter;
     private List<String> dataList = new ArrayList<>();
     private List<Province> provinceList;
     private List<City> cityList;
@@ -49,7 +50,7 @@ public class ChooseAreaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         titleText = (TextView)findViewById(R.id.title_text);
         listVIew = (ListView)findViewById(R.id.list_view);
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,dataList);
+        adapter = new ProvinceAdapter(this,R.layout.list_view,dataList);
         listVIew.setAdapter(adapter);
         listVIew.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

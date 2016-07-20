@@ -2,6 +2,7 @@ package util;
 
 import android.text.TextUtils;
 
+import app.zazaluweather.com.zazaluweather.R;
 import model.City;
 import model.County;
 import model.Province;

@@ -11,6 +11,15 @@ public class Province {
     private int id;
     private String provinceName;
     private String provinceCode;
+    private int ImageId;
+
+    public int getImageId() {
+        return ImageId;
+    }
+
+    public void setImageId(int imageId) {
+        ImageId = imageId;
+    }
 
     public int getId() {
         return id;
