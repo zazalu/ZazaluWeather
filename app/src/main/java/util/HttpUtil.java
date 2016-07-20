@@ -17,6 +17,7 @@ public class HttpUtil {
             @Override
             public void run() {
                 HttpURLConnection connection = null;
+                BufferedReader br = null;
                 try {
                     URL url = new URL(address);
                     connection = (HttpURLConnection) url.openConnection();
@@ -25,7 +26,7 @@ public class HttpUtil {
                     connection.setReadTimeout(8000);
                     InputStream inputStream = connection.getInputStream();
                     StringBuilder response = new StringBuilder();
-                    BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+                    br = new BufferedReader(new InputStreamReader(inputStream));
                     String line;
                     while ( (line = br.readLine()) != null){
                         response.append(line);
@@ -39,6 +40,12 @@ public class HttpUtil {
                     }
                     e.printStackTrace();
                 }finally {
+                    if(br != null)
+                        try {
+                            br.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     if(connection != null)
                     connection.disconnect();
                 }

@@ -84,7 +84,7 @@ public class ZazaluWeatherDB {
     //load City data from table city
     public List<City> loadCity(int provinceId){
         List<City> list = new ArrayList<>();
-        Cursor cursor = db.query("City",null,"province_id = ?",new String[]{ String.valueOf(provinceId)},null,null,null);
+        Cursor cursor = db.query("city",null,"province_id = ?",new String[]{ String.valueOf(provinceId)},null,null,null);
         if(cursor.moveToFirst()){
             do {
                 City city = new City();
@@ -115,7 +115,7 @@ public class ZazaluWeatherDB {
     //load County data from table county
     public List<County> loadCounty(int cityId){
         List<County> list = new ArrayList<>();
-        Cursor cursor = db.query("County",null,"city_id = ?",new String[]{String.valueOf(cityId)},null,null,null);
+        Cursor cursor = db.query("county",null,"city_id = ?",new String[]{String.valueOf(cityId)},null,null,null);
         if(cursor.moveToFirst()){
             do {
                 County county = new County();
@@ -123,6 +123,7 @@ public class ZazaluWeatherDB {
                 county.setCountyName(cursor.getString(cursor.getColumnIndex("county_name")));
                 county.setCountyCode(cursor.getString(cursor.getColumnIndex("county_code")));
                 county.setCityId(cityId);
+                list.add(county);
             }while (cursor.moveToNext());
         }
         cursor.close();

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.City;
@@ -32,13 +33,12 @@ public class ChooseAreaActivity extends AppCompatActivity {
     private TextView titleText;
     private ListView listVIew;
     private ArrayAdapter<String> adapter;
-    private List<String> dataList;
+    private List<String> dataList = new ArrayList<>();
     private List<Province> provinceList;
     private List<City> cityList;
     private List<County> countyList;
     private Province selectedProvince;
     private City selectedCity;
-    private County selectedCounty;
     private int currentLevel;
     private ZazaluWeatherDB db;
 
@@ -147,7 +147,7 @@ public class ChooseAreaActivity extends AppCompatActivity {
                                 queryProvinces();
                             }else if ("city".equals(type)){
                                 queryCity();
-                            }else if ("counti".equals(type)){
+                            }else if ("county".equals(type)){
                                 queryCounty();
                             }
                         }

@@ -10,23 +10,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ZazaluWeatherOpenHelper extends SQLiteOpenHelper{
     //Province table sqlString
     private final static String CREATE_PROVINCE = "create table province(" +
-            "id integer primary key autoincrement" +
-            "province_name text" +
-            "province_code text" +
+            "id integer primary key autoincrement," +
+            "province_name text," +
+            "province_code text " +
             ")";
     //City table sqlString
     private final static String CREATE_CITY = "create table city(" +
-            "id integer primary key autoincrement" +
-            "city_name text" +
-            "city_code text" +
-            "province_id integer" +
+            "id integer primary key autoincrement," +
+            "city_name text," +
+            "city_code text," +
+            "province_id integer " +
             ")";
     //County table sqlString
     private final static String CREATE_COUNTRY = "create table county(" +
-            "id integer primary key autoincrement" +
-            "county_name text" +
-            "county_code text" +
-            "city_id integer" +
+            "id integer primary key autoincrement," +
+            "county_name text," +
+            "county_code text," +
+            "city_id integer " +
             ")";
 
     public ZazaluWeatherOpenHelper(Context context, String dbname, SQLiteDatabase.CursorFactory factory,int version){
