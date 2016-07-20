@@ -22,7 +22,7 @@ public class ZazaluWeatherDB {
     private SQLiteDatabase db;
     public static final int VERSION = 1;
     //single mode
-    private ZazaluWeatherDB zazaluWeatherDB;
+    private static ZazaluWeatherDB zazaluWeatherDB;
 
     //init
     private ZazaluWeatherDB(Context context){
@@ -31,7 +31,7 @@ public class ZazaluWeatherDB {
     }
 
     //getInstance
-    public ZazaluWeatherDB getInstance(Context context){
+    public static synchronized ZazaluWeatherDB getInstance(Context context){
         if(zazaluWeatherDB == null){
             zazaluWeatherDB = new ZazaluWeatherDB(context);
         }
