@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 
+import service.AutoUpdateService;
 import util.HttpCallbackListener;
 import util.HttpUtil;
 import util.Utility;
@@ -148,6 +149,10 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
 
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+
+        //激活后台更新天气服务
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
 
